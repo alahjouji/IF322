@@ -1,0 +1,72 @@
+include "taxonomy.diaspec";
+
+
+context CookerContext as Boolean {
+	when provided motion from MotionDetector 
+	get currentElectricConsumption from ElectricMeter
+	maybe publish;
+}
+
+controller MessengerController {
+	when provided CookerContext
+	do SendMessage on Messenger, AskQuestion on Prompter, ScheduleTimer on Timer;
+}
+
+context PrompterContext as String{
+	when provided timerTriggered from Timer
+	get answer from Prompter
+	maybe publish;
+}
+
+controller CuisiniereController {
+	when provided PrompterContext
+	do ScheduleTimer on Timer;
+}
+
+controller CuisiniereController2 {
+	when provided PrompterContext
+	do ScheduleTimer on Timer;
+}
+
+context TimerContext as Boolean {
+	when provided timerTriggered from Timer
+	get currentElectricConsumption from ElectricMeter
+	maybe publish; 
+}
+
+context TimerContext2 as String {
+	when provided timerTriggered from Timer
+	get currentElectricConsumption from ElectricMeter, PrompterContext
+	maybe publish; 
+}
+
+controller MessengerController2 {
+	when provided TimerContext2
+	do SendMessage on Messenger;
+}
+
+controller OffController {
+	when provided TimerContext
+	do Off on Cooker;
+}
+
+context TurnOnContext as Boolean {
+	when provided motion from MotionDetector
+	get TimerContext
+	maybe publish;
+}
+
+controller TurnOnController {
+	when provided TurnOnContext
+	do SendMessage on Messenger, ScheduleTimer on Timer;
+}
+
+context TurnOnContext2 as Boolean {
+	when provided timerTriggered from Timer
+	maybe publish;
+}
+
+controller TurnOnController2 {
+	when provided TurnOnContext2
+	do On on Cooker;
+}

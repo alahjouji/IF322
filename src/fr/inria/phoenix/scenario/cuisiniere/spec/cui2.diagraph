@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DiaGraph>
+	<controller id="OvenController" x="25.0" y="187.0"/>
+	<action id="Timer/ScheduleTimer" x="115.0" y="67.0"/>
+	<context id="ContactContext" x="25.0" y="427.0"/>
+	<source id="ContactSensor/state" x="92.0" y="547.0"/>
+	<source id="Timer/timerTriggered" x="272.0" y="547.0"/>
+	<controller id="CookerController" x="205.0" y="187.0"/>
+	<context id="MotionContext" x="295.0" y="307.0"/>
+	<context id="CookerContext" x="205.0" y="427.0"/>
+	<source id="ElectricMeter/currentElectricConsumption" x="452.0" y="547.0"/>
+	<source id="Cooker/status" x="632.0" y="547.0"/>
+	<source id="MotionDetector/motion" x="812.0" y="547.0"/>
+	<controller id="TimerController" x="565.0" y="187.0"/>
+	<action id="Prompter/AskQuestion" x="295.0" y="67.0"/>
+	<action id="Messenger/SendMessage" x="655.0" y="67.0"/>
+	<action id="Cooker/Off" x="475.0" y="67.0"/>
+	<context id="TimerContext" x="565.0" y="427.0"/>
+	<controller id="PrompterController" x="385.0" y="187.0"/>
+	<context id="PrompterContext" x="385.0" y="427.0"/>
+	<source id="Prompter/answer" x="992.0" y="547.0"/>
+</DiaGraph>

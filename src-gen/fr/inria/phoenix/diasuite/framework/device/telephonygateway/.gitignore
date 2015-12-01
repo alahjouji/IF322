@@ -1,0 +1,7 @@
+/AbstractTelephonyGateway.java
+/CurrentCallFromTelephonyGateway.java
+/IsAliveFromTelephonyGateway.java
+/LastMissedCallFromTelephonyGateway.java
+/MissedCallsFromTelephonyGateway.java
+/RedirectionNumberInFromTelephonyGateway.java
+/RedirectionNumberOutFromTelephonyGateway.java
