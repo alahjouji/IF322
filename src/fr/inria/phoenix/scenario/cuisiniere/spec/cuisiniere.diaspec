@@ -2,8 +2,8 @@ include "taxonomy.diaspec";
 
 
 context CookerContext as Boolean {
-	when provided motion from MotionDetector 
-	get currentElectricConsumption from ElectricMeter
+	when provided currentElectricConsumption from ElectricMeter 
+	get motion from MotionDetector 
 	maybe publish;
 }
 

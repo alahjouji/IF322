@@ -3,7 +3,7 @@ package fr.inria.phoenix.scenario.cuisiniere.impl.context;
 import fr.inria.diagen.core.ServiceConfiguration;
 import fr.inria.diagen.log.DiaLog;
 import fr.inria.phoenix.diasuite.framework.context.cookercontext.AbstractCookerContext;
-import fr.inria.phoenix.diasuite.framework.device.motiondetector.MotionFromMotionDetector;
+import fr.inria.phoenix.diasuite.framework.device.electricmeter.CurrentElectricConsumptionFromElectricMeter;
 
 public class CookerContext extends AbstractCookerContext {
 
@@ -13,17 +13,20 @@ public class CookerContext extends AbstractCookerContext {
 	}
 
 	@Override
-	protected CookerContextValuePublishable onMotionFromMotionDetector(
-			MotionFromMotionDetector motionFromMotionDetector, DiscoverForMotionFromMotionDetector discover) {
+	protected CookerContextValuePublishable onCurrentElectricConsumptionFromElectricMeter(
+			CurrentElectricConsumptionFromElectricMeter currentElectricConsumptionFromElectricMeter,
+			DiscoverForCurrentElectricConsumptionFromElectricMeter discover) {
 		// TODO Auto-generated method stub
 		DiaLog.info("CookerContext");
-		if(motionFromMotionDetector.value().getState().equals("true") && discover.electricMeters().anyOne().getCurrentElectricConsumption().getState().equals("On") && Integer.parseInt(discover.electricMeters().anyOne().getCurrentElectricConsumption().getTimestamp())<10000){
+		if(discover.motionDetectors().anyOne().getMotion().getState().equals("true") && currentElectricConsumptionFromElectricMeter.value().getState().equals("On") && Integer.parseInt(currentElectricConsumptionFromElectricMeter.value().getTimestamp())<10000){
 			DiaLog.info("CookerContext: there is motion and cooker just turned on");
 			return new CookerContextValuePublishable(true,true);
 		}
 		DiaLog.info("CookerContext: No motion or cooker not on or cooker on for a while");
 		return new CookerContextValuePublishable(false,false);
 	}
+
+
 
 
 
