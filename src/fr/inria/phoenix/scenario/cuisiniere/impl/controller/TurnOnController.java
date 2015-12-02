@@ -18,7 +18,7 @@ public class TurnOnController extends AbstractTurnOnController {
 	protected void onTurnOnContext(TurnOnContextValue turnOnContext, DiscoverForTurnOnContext discover) {
 		// TODO Auto-generated method stub
 		DiaLog.info("TurnOnController");
-		discover.messengers().anyOne().sendMessage(new Contact(), "", "la cuisiniere a ete eteinte automatiquement veuillez la remettre à 0 pour qu'on puisse la realimenter", null);
+		discover.messengers().anyOne().sendMessage(new Contact(), "", "la cuisiniere a ete eteinte automatiquement veuillez la remettre a 0 pour qu'on puisse la realimenter", null);
 		discover.timers().whereId(Configuration.ID_TIMER_4).schedule(Configuration.ID_TIMER_4, Integer.parseInt(Configuration.TIME_WAIT_1));
 	}
 

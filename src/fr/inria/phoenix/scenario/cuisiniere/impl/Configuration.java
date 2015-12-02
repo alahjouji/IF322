@@ -9,7 +9,7 @@ public class Configuration {
 	public static  String ID_PROPERTY_3= "id3";
 	public static  String ID_TIMER_3 = "cooking";
 	public static  String ID_PROPERTY_4= "id4";
-	public static  String ID_TIMER_4 = "waiting for remise à 0";
+	public static  String ID_TIMER_4 = "waiting for remise a 0";
 
 	public static final String TIME_PROPERTY_1 = "delayMs1";
 	public static  String TIME_WAIT = "180000";

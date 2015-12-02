@@ -18,7 +18,7 @@ public class MessengerController2 extends AbstractMessengerController2 {
 	protected void onTimerContext2(TimerContext2Value timerContext2, DiscoverForTimerContext2 discover) {
 		// TODO Auto-generated method stub
 		DiaLog.info("MessengerController2");
-		discover.messengers().anyOne().sendMessage(new Contact(), "", "le temps de cuisson sera epuisé dans "+String.valueOf(Integer.parseInt(timerContext2.value())/4000)+"s, veillez à etteindre votre cuisiniere", null);
+		discover.messengers().anyOne().sendMessage(new Contact(), "", "le temps de cuisson sera epuise dans "+String.valueOf(Integer.parseInt(timerContext2.value())/4000)+"s, veillez a etteindre votre cuisiniere", null);
 	}
 
 }

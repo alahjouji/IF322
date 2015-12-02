@@ -18,7 +18,7 @@ public class CookerContext extends AbstractCookerContext {
 			DiscoverForCurrentElectricConsumptionFromElectricMeter discover) {
 		// TODO Auto-generated method stub
 		DiaLog.info("CookerContext");
-		if(discover.motionDetectors().anyOne().getMotion().getState().equals("true") && currentElectricConsumptionFromElectricMeter.value().getState().equals("On") && Integer.parseInt(currentElectricConsumptionFromElectricMeter.value().getTimestamp())<10000){
+		if(discover.motionDetectors().anyOne().getMotion().getState().equals("true") && Integer.parseInt(currentElectricConsumptionFromElectricMeter.value().getState())>0){
 			DiaLog.info("CookerContext: there is motion and cooker just turned on");
 			return new CookerContextValuePublishable(true,true);
 		}

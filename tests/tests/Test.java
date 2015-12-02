@@ -35,7 +35,7 @@ public class Test {
 		State newMotionValue = new State("true", "", "");
 		motion.setMotion(newMotionValue);
 		
-		State newStatusValue = new State("On", "20", "");
+		State newStatusValue = new State("1200", "", "");
 		elec.currentElectricConsumption(newStatusValue);
 		
 		assertTrue(messenger.expectSendMessage(new Contact(), "", "veuillez chercher la tablette mobile pour renseigner le temps de cuisson"));
@@ -70,9 +70,9 @@ public class Test {
 
 	    timerAlert.timerTriggered(Configuration.ID_TIMER_1, Configuration.ID_TIMER_1);
 	    timerWarn.timerTriggered(Configuration.ID_TIMER_2, Configuration.ID_TIMER_2);
-	    State newStatusValue = new State("On", "20", "");
+	    State newStatusValue = new State("1200", "", "");
 		elec.setCurrentElectricConsumption(newStatusValue);
-		assertTrue(messenger.expectSendMessage(new Contact(), "", "le temps de cuisson sera epuisé dans "+String.valueOf(20*60/4)+"s, veillez à etteindre votre cuisiniere"));
+		assertTrue(messenger.expectSendMessage(new Contact(), "", "le temps de cuisson sera epuise dans "+String.valueOf(20*60/4)+"s, veillez a etteindre votre cuisiniere"));
 
 	}
 	
@@ -88,7 +88,7 @@ public class Test {
 
 	    timerAlert.timerTriggered(Configuration.ID_TIMER_1, Configuration.ID_TIMER_1);
 	    timerCook.timerTriggered(Configuration.ID_TIMER_3, Configuration.ID_TIMER_3);
-	    State newStatusValue = new State("On", "20", "");
+	    State newStatusValue = new State("1200", "", "");
 		elec.setCurrentElectricConsumption(newStatusValue);
 		assertTrue(cooker.expectOff());
 
@@ -110,8 +110,8 @@ public class Test {
 		State newMotionValue1 = new State("false", "", "");
 		motion.setMotion(newMotionValue);
 		
-		State newStatusValue = new State("On", "20", "");
-		State newStatusValue1 = new State("Off", "20", "");
+		State newStatusValue = new State("1200", "", "");
+		State newStatusValue1 = new State("0", "", "");
 		elec.currentElectricConsumption(newStatusValue);
 		
 		assertTrue(messenger.expectSendMessage(new Contact(), "", "veuillez chercher la tablette mobile pour renseigner le temps de cuisson"));
@@ -130,12 +130,12 @@ public class Test {
 		timerWarn.timerTriggered(Configuration.ID_TIMER_2, Configuration.ID_TIMER_2);
 
 		timerCook.timerTriggered(Configuration.ID_TIMER_3, Configuration.ID_TIMER_3);
-		assertTrue(messenger.expectSendMessage(new Contact(), "", "le temps de cuisson sera epuisé dans "+String.valueOf(20*60/4)+"s, veillez à etteindre votre cuisiniere"));
+		assertTrue(messenger.expectSendMessage(new Contact(), "", "le temps de cuisson sera epuise dans "+String.valueOf(20*60/4)+"s, veillez a etteindre votre cuisiniere"));
 
 		assertTrue(cooker.expectOff());
 		elec.setCurrentElectricConsumption(newStatusValue1);
 		motion.motion(newMotionValue);
-		assertTrue(messenger.expectSendMessage(new Contact(), "", "la cuisiniere a ete eteinte automatiquement veuillez la remettre à 0 pour qu'on puisse la realimenter"));
+		assertTrue(messenger.expectSendMessage(new Contact(), "", "la cuisiniere a ete eteinte automatiquement veuillez la remettre a 0 pour qu'on puisse la realimenter"));
 
 		assertTrue(timerAlert2.expectSchedule(Configuration.ID_TIMER_4));
 		

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <DiaGraph>
-	<controller id="MessengerController" x="339.0" y="187.0"/>
+	<controller id="MessengerController" x="280.0" y="189.0"/>
+	<action id="Timer/ScheduleTimer" x="103.0" y="105.0"/>
 	<action id="Messenger/SendMessage" x="294.0" y="67.0"/>
-	<action id="Timer/ScheduleTimer" x="114.0" y="67.0"/>
 	<action id="Prompter/AskQuestion" x="474.0" y="67.0"/>
 	<context id="CookerContext" x="249.0" y="427.0"/>
-	<source id="MotionDetector/motion" x="215.0" y="547.0"/>
 	<source id="ElectricMeter/currentElectricConsumption" x="395.0" y="547.0"/>
-	<controller id="CuisiniereController" x="519.0" y="187.0"/>
-	<context id="PrompterContext" x="429.0" y="427.0"/>
+	<source id="MotionDetector/motion" x="215.0" y="547.0"/>
+	<controller id="CuisiniereController" x="476.0" y="205.0"/>
+	<context id="PrompterContext" x="446.0" y="444.0"/>
+	<source id="Timer/timerTriggered" x="787.0" y="539.0"/>
 	<source id="Prompter/answer" x="575.0" y="547.0"/>
-	<source id="Timer/timerTriggered" x="755.0" y="547.0"/>
 	<controller id="CuisiniereController2" x="879.0" y="187.0"/>
 	<controller id="MessengerController2" x="699.0" y="187.0"/>
 	<context id="TimerContext2" x="339.0" y="307.0"/>
@@ -19,7 +19,7 @@
 	<context id="TimerContext" x="609.0" y="427.0"/>
 	<controller id="TurnOnController" x="159.0" y="187.0"/>
 	<context id="TurnOnContext" x="159.0" y="307.0"/>
-	<controller id="TurnOnController2" x="1239.0" y="187.0"/>
+	<controller id="TurnOnController2" x="1180.0" y="181.0"/>
 	<action id="Cooker/On" x="834.0" y="67.0"/>
 	<context id="TurnOnContext2" x="834.0" y="427.0"/>
 </DiaGraph>

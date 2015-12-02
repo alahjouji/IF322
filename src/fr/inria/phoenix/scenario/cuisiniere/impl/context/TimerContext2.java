@@ -20,7 +20,7 @@ public class TimerContext2 extends AbstractTimerContext2 {
 		if(timerTriggeredFromTimer.sender().id().equals(Configuration.ID_TIMER_2)){
 			DiaLog.info("TimerContext2");
 	
-			if(discover.electricMeters().anyOne().getCurrentElectricConsumption().getState().equals("On")){
+			if(Integer.parseInt(discover.electricMeters().anyOne().getCurrentElectricConsumption().getState())>0){
 				DiaLog.info("TimerContext2: cooker still on");
 				return new TimerContext2ValuePublishable(discover.prompterContext(),true);
 			}
